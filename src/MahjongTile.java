@@ -1,4 +1,4 @@
-public class MahjongTile {
+public class MahjongTile implements Comparable<MahjongTile>{
 
     public enum TileKind {
         MAN, PIN, SOU, WIND, DRAGON
@@ -17,6 +17,13 @@ public class MahjongTile {
 
     public int getNum(){
         return num;
+    }
+
+    @Override
+    public int compareTo(MahjongTile other){
+        int cmp = this.tileKind.ordinal() - other.tileKind.ordinal();
+        if (cmp != 0)   return cmp;
+        else return this.num - other.num;
     }
 
 

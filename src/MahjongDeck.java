@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MahjongDeck {
+    int index = 0;
     ArrayList<MahjongTile> tiles = new ArrayList<>();
 
     public MahjongDeck(){
@@ -34,6 +35,11 @@ public class MahjongDeck {
 
     private void shuffle(){
         Collections.shuffle(tiles);
+    }
+
+    public MahjongTile drawTile(){
+        if(index >= tiles.size())   return null;
+        return tiles.get(index++);
     }
 
     @Override
